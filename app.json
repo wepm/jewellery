@@ -15,7 +15,8 @@
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#d9002f",
     "navigationBarTitleText": "中国珠宝通",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle":"white",
+    "enablePullDownRefresh": false
   },
    "tabBar": {
     "color": "#6e6d6b",
