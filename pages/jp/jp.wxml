@@ -1,44 +1,29 @@
-
-<!--pages/jp/jp.wxml-->
+<!--pages/new/new.wxml-->
 <dl class="menu">
-  <dt data-index="0" bindtap="tapMainMenu">翡翠<span class="list_m_font"></span> </dt>
-  <dt data-index="1" bindtap="tapMainMenu">钻石<span class="list_m_font"></span> </dt>
-  <dt data-index="2" bindtap="tapMainMenu">彩宝<span class="list_m_font"></span> </dt>
-  <dt data-index="3" bindtap="tapMainMenu">定制<span class="list_m_font"></span> </dt>
-  <dd class="{{subMenuDisplay[0]}}">
-    <ul>
-      <li bindtap="tapSubMenu">300</li>
-      <li bindtap="tapSubMenu">500</li>
-      <li bindtap="tapSubMenu">800</li>
-      <li bindtap="tapSubMenu">1000</li>
-      <li bindtap="tapSubMenu">1500</li>
-      <li bindtap="tapSubMenu">2000</li>
-    </ul>
-  </dd>
-  <dd class="{{subMenuDisplay[1]}}">
-    <ul>
-      <li bindtap="tapSubMenu">4000</li>
-      <li bindtap="tapSubMenu">5000</li>
-      <li bindtap="tapSubMenu">6000</li>
-      <li bindtap="tapSubMenu">6000</li>
-      <li bindtap="tapSubMenu">7000</li>
-      <li bindtap="tapSubMenu">8000</li>
-      <li bindtap="tapSubMenu">9000</li>
-      <li bindtap="tapSubMenu">10000</li>
-    </ul>
-  </dd>
-  <dd class="{{subMenuDisplay[2]}}">
-    <ul>
-      <li bindtap="tapSubMenu">7000</li>
-      <li bindtap="tapSubMenu">8000</li>
-    </ul>
-  </dd>
-  <dd class="{{subMenuDisplay[3]}}">
-    <ul>
-      <li bindtap="tapSubMenu">7000</li>
-      <li bindtap="tapSubMenu">8000</li>
-    </ul>
-  </dd>
+    <dt data-index="0" bindtap="tapMainMenu">翡翠<span class="list_m_font"></span></dt>
+    <dt data-index="1" bindtap="tapMainMenu">钻石<span class="list_m_font"></span></dt>
+    <dt data-index="2" bindtap="tapMainMenu">彩宝<span class="list_m_font"></span></dt>    
+    <dt data-index="3" bindtap="tapMainMenu">定制<span class="list_m_font"></span></dt>
+    <dd class="{{subMenuDisplay[0]}}">
+        <ul wx:for="{{fcClass}}">
+            <li bindtap="tapSubMenu" data-type="fc" data-mid="{{item.mid}}" data-attr="{{item.attr}}" data-value="{{item.value}}">{{item.name}}</li>
+        </ul>
+    </dd>
+    <dd class="{{subMenuDisplay[1]}}">
+        <ul wx:for="{{zsClass}}">
+            <li bindtap="tapSubMenu" data-type="zs" data-mid="{{item.mid}}" data-attr="{{item.attr}}" data-value="{{item.value}}">{{item.name}}</li>
+        </ul>
+    </dd>
+    <dd class="{{subMenuDisplay[2]}}">
+        <ul wx:for="{{cbClass}}">
+            <li bindtap="tapSubMenu" data-type="cb" data-mid="{{item.mid}}" data-attr="{{item.attr}}" data-value="{{item.value}}">{{item.name}}</li>
+        </ul>
+    </dd>
+    <dd class="{{subMenuDisplay[3]}}">
+        <ul wx:for="{{dzClass}}">
+            <li bindtap="tapSubMenu" data-type="dz" data-mid="{{item.mid}}" data-attr="{{item.attr}}" data-value="{{item.value}}">{{item.name}}</li>
+        </ul>
+    </dd>
 </dl>
 
 <view class="class_50"></view>

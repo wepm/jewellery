@@ -8,7 +8,17 @@ function initSubMenuDisplay() {
 Page({
     data:{
         subMenuDisplay:initSubMenuDisplay(),
-        color:0
+        color:0,
+        productData,
+        page:1,
+        fcClass:[],
+        zsClass:[],
+        cbClass:[],
+        dzClass:[],
+        filterCid:1,
+        filterMid:0,
+        filterValueText:'',
+        filterPriceSection:'',
     },
     tapMainMenu: function(e) {//        获取当前显示的一级菜单标识
         var index = parseInt(e.currentTarget.dataset.index);        // 生成数组，全为hidden的，只对当前的进行显示
@@ -23,10 +33,62 @@ Page({
         });
     },
     tapSubMenu: function(e) { 
-      var index = parseInt(e.currentTarget.dataset.index);
-      this.setData({ 
-        subMenuDisplay: initSubMenuDisplay()
-      }); 
+        var dataset = e.currentTarget.dataset;
+      var index = parseInt(dataset.index);
+      
+      console.log(e);
+      var mid = dataset.mid;
+      var attr = dataset.attr;
+      var val = dataset.value;
+      if(val){
+        //查询商品
+        this.setData({
+            subMenuDisplay: initSubMenuDisplay(),
+            filterMid: mid,
+            filterValueText: val
+        });
+
+        console.log('filter data：' + val);
+        this.initProductData(productData.data);
+        this.initProductClass(allClass.data);
+        return;
+      }
+      var filterType = dataset.type;
+      var box = [];
+      switch(filterType){
+        case 'fc':
+            box = this.data.fcClass;
+            break;
+        case 'zs':
+            box = this.data.zsClass;
+            break;
+        case 'cb':
+            box = this.data.cbClass;
+            break;
+        case 'dz':
+            box = this.data.dzClass;
+            break;
+      }
+
+      //如果当前存在此属性，直接显示
+      if(attr) {
+        var array = attr.split(',');
+
+        box.length = 0;
+        for(var i =0; i<array.length;i++){
+            box.push({
+                mid:mid,
+                name:array[i],
+                value:array[i],
+            });
+        };
+
+      }else{
+        //点击子菜单属性
+        this.initProductAttr(box, attrClass.data);
+      }
+
+      this.refreshData();
   },
   initProductData: function (data){
     for(var i=0; i<data.length; i++){
@@ -47,7 +109,7 @@ Page({
     wx.request({
       url: app.d.hostUrl + '/ztb/productZBT/ScreenProduct',
       data: {
-        type: 2,
+        type: 1,
         pageindex: that.data.page,
         pagesize:10,
       },
@@ -58,17 +120,219 @@ Page({
         console.log(res.data)
       },
     })
-    //--init data
+    //--加载产品
     that.initProductData(productData.data);
     that.setData({
       productData:productData.data,
     });
-    console.log(that.data.productData)
-
+    //console.log(that.data.productData)
+    //加载分类
+    ///ztb/prodcutModelZBT/GetProductModelZBTList
+    that.initProductClass(allClass.data);
     
+  },
+  initProductClass:function(data){
+    var that = this;
+
+    that.data.fcClass.length = 0;
+    that.data.zsClass.length = 0;
+    that.data.cbClass.length = 0;
+    for(var i=0;i<data.length;i++){
+        var item = data[i];
+
+        //翡翠
+        if(item.ParentID.length == 6 && item.ParentID.indexOf('102') == 0){
+            that.data.fcClass.push({
+                mid: item.MID,
+                name: item.ModelName
+            });
+        }
+        //钻石
+        if(item.ParentID.length == 6 && item.ParentID.indexOf('110') == 0){
+            that.data.zsClass.push({
+                name: item.ModelName
+            });
+        }
+        //彩宝
+        if(item.ParentID.length == 6 && item.ParentID.indexOf('111') == 0){
+            that.data.cbClass.push({
+                name: item.ModelName
+            });
+        }
+    }
+    
+    this.refreshData();
+  },
+  initProductAttr: function(box, data){
+
+    box.length = 0;
+      for(var i =0; i<data.length;i++){
+          var item = data[i];
+
+          box.push({
+            mid: item.MID,
+            name: item.AttrName,
+            attr: item.ValueText,
+          });
+      }
+  },
+  refreshData:function(){
+    this.setData({
+        fcClass:this.data.fcClass,
+        zsClass:this.data.zsClass,
+        cbClass:this.data.cbClass,
+      });
+
+    console.log(this.data.fcClass);
+    console.log(this.data.zsClass);
+    console.log(this.data.cbClass);
   },
 });
 
+var attrClass = {
+    "result": "ok",
+    "message": "获取成功",
+    "data": [
+        {
+            "row_id": 1,
+            "AttrID": 35,
+            "AttrName": "品种",
+            "MID": 105,
+            "InputType": 2,
+            "ValueText": "观音,玉佛,如意,福瓜,平安扣,财豆,貔貅,节节高,关公,白菜,瑞兽,路路通,生肖,龙凤,叶子,葫芦,其他",
+            "IsUse": true,
+            "IsOpen": false,
+            "SortCount": 0,
+            "IsShow": true,
+            "IsSearch": true
+        },
+        {
+            "row_id": 2,
+            "AttrID": 36,
+            "AttrName": "种水",
+            "MID": 105,
+            "InputType": 2,
+            "ValueText": "豆种,糯种,糯冰种,冰糯种,冰种,高冰种,冰玻种,玻璃种,龙石种,其他",
+            "IsUse": true,
+            "IsOpen": false,
+            "SortCount": 0,
+            "IsShow": true,
+            "IsSearch": true
+        },
+        {
+            "row_id": 3,
+            "AttrID": 92,
+            "AttrName": "价格",
+            "MID": 105,
+            "InputType": 2,
+            "ValueText": "全部,3000以下,3000-6000,6001-10000,10001-20000,20001-50000,50001-100000,100001-200000,200000以上",
+            "IsUse": true,
+            "IsOpen": false,
+            "SortCount": 0,
+            "IsShow": false,
+            "IsSearch": true
+        }
+    ],
+    "tableName": null,
+    "dataset": null,
+    "count": 0,
+    "other": null
+};
+var allClass = {
+    "result": "ok",
+    "message": "获取成功",
+    "data": [
+        {
+            "MID": 102,
+            "ModelName": "翡翠",
+            "ParentID": "102"
+        },
+        {
+            "MID": 103,
+            "ModelName": "挂件/吊坠",
+            "ParentID": "102103"
+        },
+        {
+            "MID": 104,
+            "ModelName": "戒指",
+            "ParentID": "102104"
+        },
+        {
+            "MID": 105,
+            "ModelName": "耳饰",
+            "ParentID": "102105"
+        },
+        {
+            "MID": 106,
+            "ModelName": "把玩件",
+            "ParentID": "102106"
+        },
+        {
+            "MID": 107,
+            "ModelName": "摆件",
+            "ParentID": "102107"
+        },
+        {
+            "MID": 108,
+            "ModelName": "套链/手链",
+            "ParentID": "102108"
+        },
+        {
+            "MID": 109,
+            "ModelName": "其他(珠链/手串)",
+            "ParentID": "102109"
+        },
+        {
+            "MID": 110,
+            "ModelName": "钻石",
+            "ParentID": "110"
+        },
+        {
+            "MID": 111,
+            "ModelName": "彩宝",
+            "ParentID": "111"
+        },
+        {
+            "MID": 112,
+            "ModelName": "玛瑙",
+            "ParentID": "112"
+        },
+        {
+            "MID": 113,
+            "ModelName": "戒指",
+            "ParentID": "110113"
+        },
+        {
+            "MID": 114,
+            "ModelName": "手镯",
+            "ParentID": "102114"
+        },
+        {
+            "MID": 115,
+            "ModelName": "戒指",
+            "ParentID": "111115"
+        },
+        {
+            "MID": 116,
+            "ModelName": "手镯",
+            "ParentID": "111116"
+        },
+        {
+            "MID": 117,
+            "ModelName": "全钻",
+            "ParentID": "110117"
+        },
+        {
+            "MID": 119,
+            "ModelName": "裸钻",
+            "ParentID": "110119"
+        }
+    ],
+    "tableName": null,
+    "dataset": null,
+    "count": 0,
+    "other": null
+};
 var productData = {
     "result": "ok",
     "message": "获取成功",
