@@ -1,0 +1,61 @@
+<!--pages/search/search.wxml-->
+<view class="search df">
+    <input class="df_1" placeholder="请输入你有搜索的内容" auto-focus/>
+    <button><image class="searchcion" src="/images/search.png"></image></button>
+</view>
+<view class="cont">
+    <text class="font_14">热门搜索</text>
+    <view class="w100">
+        <button>翡翠</button>
+        <button>钻石</button>
+        <button>手镯</button>
+        <button>翡翠</button>
+        <button>钻石</button>
+        <button>手镯</button>
+        <button>翡翠</button>
+        <button>钻石</button>
+        <button>手镯</button>
+    </view>
+    <text class="font_14 mt10">历史搜索</text>
+    <view class="w100">
+        <button>翡翠</button>
+        <button>钻石</button>
+        <button>手镯</button>
+        <button>翡翠</button>
+        <button>钻石</button>
+        <button>手镯</button>
+        <button>翡翠</button>
+        <button>钻石</button>
+        <button>手镯</button>
+    </view>
+</view>
+
+<view class="shop">        
+    <image class="sh_slt" src="/images/sp_slt01.png"></image>           
+        <view class="sp_text">
+            <view class="sp_tit ovh1">冰种阳绿蛋面戒指蛋冰种阳绿蛋面戒指蛋</view>
+            <view class="sp_jg">￥：2000</view>                
+        </view>
+</view>
+
+<view class="shop">        
+    <image class="sh_slt" src="/images/sp_slt02.png"></image>           
+        <view class="sp_text">
+            <view class="sp_tit ovh1">冰种阳绿蛋面戒指蛋冰种阳绿蛋面戒指蛋</view>
+            <view class="sp_jg">￥：2000</view>                
+        </view>
+</view>
+<view class="shop">        
+    <image class="sh_slt" src="/images/sp_slt03.png"></image>           
+        <view class="sp_text">
+            <view class="sp_tit ovh1">冰种阳绿蛋面戒指蛋冰种阳绿蛋面戒指蛋</view>
+            <view class="sp_jg">￥：2000</view>                
+        </view>
+</view>
+<view class="shop">        
+    <image class="sh_slt" src="/images/sp_slt04.png"></image>           
+        <view class="sp_text">
+            <view class="sp_tit ovh1">冰种阳绿蛋面戒指蛋冰种阳绿蛋面戒指蛋</view>
+            <view class="sp_jg">￥：2000</view>                
+        </view>
+</view>

@@ -1,0 +1,44 @@
+<!--pages/user/user.wxml-->
+<view class="page">
+    <view class="userinfo">
+      <image class="userinfo-avatar" src="/images/jp.png" background-size="cover"></image>
+      <text class="userinfo-nickname">小丑</text>
+    </view> 
+    <view class="sc mt10 df">
+        <view class="df_1 tc">
+          <view><image src="/images/use_sc.png"></image></view>
+          <text>我的收藏</text>
+        </view>
+        <view class="df_1 tc">
+          <view><image src="/images/use_ry.png"></image></view>
+          <text>企业荣誉</text>
+        </view>
+    </view> 
+
+    <!--订单详情-->
+    <view class="qbdd mt10"><span class="font_14">全部订单</span><span class="fl_r c9 font_12">查看全部订单></span></view>
+    <view class="sc df tc bte ">
+      <view class="df_1">
+        <view><image src="/images/dfk.png"></image></view>
+        <text class="font_12">待付款</text>
+      </view>
+      <view class="df_1">
+      <view><image src="/images/dfh.png"></image></view>
+        <text class="font_12">待发货</text>      
+      </view>
+      <view class="df_1">
+        <view><image src="/images/dsh.png"></image></view>
+        <text  class="font_12">待收货</text>
+      </view>
+      <view class="df_1">
+        <view><image src="/images/dpl.png"></image></view>
+        <text class="font_12">待评价</text>
+      </view>
+      <view class="df_1">
+        <view><image src="/images/tksh.png"></image></view>
+        <text class="font_12">退款/售后</text>
+      </view>
+    </view>
+</view>
+
+

@@ -1,0 +1,67 @@
+<!--index.wxml-->
+<view class="page">
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" width="100%" height="180"/>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="df nav">
+    
+    <view class="df_1" >
+        <navigator url="../new/new" hover-class="changestyle"><image src="/images/new.png"></image>最新</navigator>
+    </view>   
+     
+    <view class="df_1">
+        <navigator url="../jp/jp" hover-class="changestyle"><image src="/images/jp.png"></image>精品</navigator>    
+    </view>   
+    
+    <view class="df_1">
+        <navigator url="../shop/shop" hover-class="changestyle"><image src="/images/shop.png"></image>商城</navigator>
+    </view>   
+     
+    <view class="df_1">
+        <navigator url="../see/see" hover-class="changestyle"><image src="/images/xs.png"></image>欣赏</navigator>
+    </view>       
+    
+</view>
+<!--推荐内容开始-->
+<view class="cont">
+    <navigator url="detail" hover-class="changestyle">
+  <image src="/images/nr01.png"></image>
+  <view class="title">蜜蜡吉祥纹坠女款天然无优化琥珀吊坠毛衣链</view>
+  <view class="gmxx df">
+      <span class="jiage df_1">￥：1200</span>
+      <button>立即购买</button>
+  </view>
+  </navigator>
+</view>
+
+<view class="cont">
+    <navigator url="detail" hover-class="changestyle">
+  <image src="/images/nr01.png"></image>
+  <view class="title">蜜蜡吉祥纹坠女款天然无优化琥珀吊坠毛衣链</view>
+  <view class="gmxx df">
+      <span class="jiage df_1">￥：1200</span>
+      <button>立即购买</button>
+  </view>
+  </navigator>
+</view>
+
+<view class="cont">
+    <navigator url="detail" hover-class="changestyle">
+  <image src="/images/nr01.png"></image>
+  <view class="title">蜜蜡吉祥纹坠女款天然无优化琥珀吊坠毛衣链</view>
+  <view class="gmxx df">
+      <span class="jiage df_1">￥：1200</span>
+      <button>立即购买</button>
+  </view>
+  </navigator>
+</view>
+
+
+<!--底部清除-->
+<view class="clear mt10"></view>
+</view>
