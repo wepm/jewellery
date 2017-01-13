@@ -1,92 +1,64 @@
 
 <!--pages/index/detail.wxml-->
-<view class="ad">
+<view class="ad" wx:if="{{bannerApp}}">
   <view class="text-title">
     <view class="font_14">中国珠宝通</view>
     <view class="font_10">珠宝电商无假货平台</view>
   </view>
   <view class="button_icon">立即打开</view>
-  <image class="cl_button" src="/images/cl_button.png"></image>
+  <image class="cl_button" src="/images/cl_button.png" bindtap="bannerClosed"></image>
 </view>
 
 <!--内容开始-->
 <view class="cont">
-  <image class="tp_image" src="/images/nr01.png"></image>
-  <view class="title">蜜蜡吉祥纹坠女款天然无优化琥珀吊坠毛衣链</view>
+  <image class="tp_image" src="{{itemData.LunBoProductImageUrl[0]}}"></image>
+  <view class="title">{{itemData.ProductName}}</view>
   <view class="gmxx">
-    <view><span class="jiage">￥：1200</span> <span class="c6 fl_r font_14">库存：55</span> </view>
-    <view class="font_12 c6">品牌：中国珠宝通</view>
-    <view class="font_12 c6">共享：返还积分</view>
-    <view class="font_12 c6">支持：微信支付，支付宝，银联，线下</view>
+    <view><span class="jiage">￥：{{itemData.Price}}</span> <span class="c6 fl_r font_14">库存：{{itemData.StockCount}}</span> </view>
+    <view class="font_14 c6">品牌：佳名珠宝（云南省著名商标）</view>
+    <view class="font_14 c6">共享：返还积分</view>
+    <view class="font_14 c6">支持：微信支付，支付宝，银联，线下</view>
   </view>
 </view>
+
 <view>
-  <view class="nav bc_white">
-    <view class="bre {{selected?'red':'default'}}" bindtap="selected">图文详情</view>
-    <view class="{{selected1?'red':'default'}}" bindtap="selected1">产品参数</view>
-  </view>
-  <view class="{{selected?'show':'hidden'}}">
+<view class="swiper-tab">
+  <view class="bre swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">图文详情</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">产品参数</view>
+</view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+
+  <!-- 图文详情 -->
+  <swiper-item>
     <view class="p_all">
-      <image class="tp_image" src="/images/nr01.png"></image>
-      <view>色泽亮度很好，至少跟我妹妹想象的是一样的。妹妹很喜欢。还有证书，这个价格真的很美丽的。珠子的色泽均匀圆润，看着很清透。 最重要的是我妹妹喜欢，很喜欢这个手串，不懂的可以问我哦，互相沟通好很重要哈。卖家还是亲切可爱的，下次还会再来！ 服务很棒，打电话来问我的感受</view>
+      <!-- <image class="tp_image" src="{{itemData.LunBoProductImageUrl[0]}}"></image> -->
+      <view class="tw_text">{{itemData.Contents}}</view>
     </view>
-  </view>
-  <view class="{{selected1?'show':'hidden'}}">
-    <view class="p_all">
+  </swiper-item>
+
+  <!-- 产品参数 -->
+  <swiper-item>
+        <view class="p_all">
       <view class="canshu df">
         <view class="name">商品名称</view>
-        <view class="df_1 c3">蜜蜡吉祥纹坠女款</view>
-      </view>
-      <view class="canshu df">
-        <view class="name">商品介绍</view>
-        <view class="df_1 c3">蜜蜡吉祥纹坠女款天然无优化琥珀吊坠毛衣链</view>
+        <view class="df_1 c3">{{itemData.ProductName}}</view>
       </view>
       <view class="canshu df">
         <view class="name">商品编号</view>
-        <view class="df_1 c3">JDZB0625242548888</view>
+        <view class="df_1 c3">{{itemData.ProductNumber}}</view>
       </view>
       <view class="canshu df">
-        <view class="name">证书类型</view>
-        <view class="df_1 c3">国家级证书</view>
-      </view>
-      <view class="canshu df">
-        <view class="name">证书编号</view>
-        <view class="df_1 c3">25445256525</view>
-      </view>
-      <view class="canshu df">
-        <view class="name">翡翠分类</view>
-        <view class="df_1 c3">天然翡翠/A货</view>
-      </view>
-      <view class="canshu df">
-        <view class="name">品种</view>
-        <view class="df_1 c3">蜜蜡</view>
-      </view>
-      <view class="canshu df">
-        <view class="name">种水</view>
-        <view class="df_1 c3">冰糯种</view>
-      </view>
-      <view class="canshu df">
-        <view class="name">材质</view>
-        <view class="df_1 c3">水晶</view>
-      </view>
-      <view class="canshu df">
-        <view class="name">产地</view>
-        <view class="df_1 c3">缅甸</view>
+        <view class="name">分类</view>
+        <view class="df_1 c3">{{itemData.ModelName}}</view>
       </view>
       <view class="canshu df">
         <view class="name">售后</view>
-        <view class="df_1 c3">七日内无条件退货</view>
-      </view>
-      <view class="canshu df">
-        <view class="name">颜色</view>
-        <view class="df_1 c3">黄色</view>
-      </view>
-      <view class="canshu df">
-        <view class="name">重量</view>
-        <view class="df_1 c3">2g</view>
+        <view class="df_1 c3">签收之日48小时无条件退货</view>
       </view>
     </view>
-  </view>
+  </swiper-item>
+</swiper>
+
 </view>
 
 <!---底部开始-->
@@ -100,14 +72,18 @@
       </navigator>
     </view>
     <view class="df_1 l_h15 pt5">
-      <navigator url="../cart/index">
+      <view bindtap="addFavorites">
         <image class="icon_kf" src="/images/shc.png"></image>
         <view class="dbtext">收藏</view>
-      </navigator>
+      </view>
+      <!-- <view bindtap="addFavorites" wx:if="{{itemData.isCollect}}">
+        <image class="icon_kf" src="/images/shced.png"></image>
+        <view class="dbtext">收藏</view>
+      </view> -->
     </view>
   </view>
   <view class="fl_l w60">
-    <navigator url="##" class="w50 fl_l bg_cheng white">加入购物车</navigator>
-    <navigator class="bg_red white w50 fl_l" type="primary" id="btnBuy" data-url="../order/pay?goods_id={{goods.id}}&shop_id={{goods.shop_id}}" bindtap="bindBtnBuy">立刻购买</navigator>
+    <view class="w50 fl_l bg_cheng white" bindtap="addShopCart">加入购物车</view>
+    <navigator class="bg_red white w50 fl_l" type="primary" id="btnBuy" url="../order/pay" bindtap="bindBtnBuy">立刻购买</navigator>
   </view>
 </view>

@@ -54,6 +54,9 @@ page{  background: #eee;}
 .font_14{  font-size: 14px;}
 .font_12{  font-size: 12px;}
 .font_10{  font-size: 10px;}
+.l_h20{
+  line-height: 20px;
+}
 /*定位*/
 .pr{position: relative;}
 .pa{position: absolute;}

@@ -1,0 +1,33 @@
+/* pages/qyry/qyry.wxss */
+.qyry{
+    background: #fff;
+    width: 92%;
+    padding: 4% 4% 5% 4%;
+    margin-bottom: 10px;
+}
+.qyry:last-child{
+    margin-bottom: 0;
+}
+.qyry image{
+    width: 100%;
+    height: 460rpx;
+}
+.title{
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    height: 30px;
+    padding-top: 10px;
+    line-height: 30px;
+    font-weight: bold;
+}
+.text{
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+    color: #999; 
+    max-height: 40px;
+    overflow: hidden;   
+}

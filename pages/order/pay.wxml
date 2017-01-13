@@ -1,0 +1,47 @@
+<!--pay.wxml-->
+<view class="w100">
+	<form bindsubmit="bindBtnPay" report-submit="true" name="payForm">
+		<view class="p_all bg_white df item">
+			<view class="cp_photo">			
+				<image src="/images/sp_slt01.png"></image>
+			</view>
+			<view class="df_1">	
+				<view class="font_14 mt5">
+		           翠玉蜜蜡平安福
+		        </view>
+			<text class="gm_ovh_1h red pt10">¥2000</text>
+			</view>
+		</view>		
+		
+		<view class="p_all bg_white mt10 font_14">
+
+			<view class="bbe mt10">
+			<input class="inputStyle" name="input" name="name" bindinput="bindKeyInput" placeholder="收货人姓名:" value="{{mobileValue}}"/>			
+			</view>
+			<view class="bbe mt10">
+			<input class="inputStyle" name="input" name="mobile" bindinput="bindKeyInput" placeholder="收货人电话:" value="{{mobileValue}}"/>			
+			</view>
+			<view class="bbe mt10">
+			<input class="inputStyle" name="input" name="address" bindinput="bindKeyInput2" placeholder="收货人地址:" value="{{addressValue}}"/>			
+			</view>
+
+			<view class="mt20">
+				<textarea class="min_60" auto-height name="remark" placeholder="备注:" value="{{remarkValue}}"/> 
+			</view>
+		</view>		
+
+	<view class="zhifu mt10 tc">应共支付：<span class="font_20 red">￥2000.00</span></view>
+	<navigator url="##" hover-class="none" class="zhifu mt10">支付宝<image class="x_right" src="/images/x_right.png"></image></navigator>
+	<navigator url="##" hover-class="none" class="zhifu">银联支付<image class="x_right" src="/images/x_right.png"></image></navigator>
+	<navigator url="../order/downline" hover-class="none" class="zhifu">线下支付<image class="x_right" src="/images/x_right.png"></image></navigator>
+
+	<view class="p_all mt10">
+		<view class="btnGreen">
+		<button type="primary" id="btnPay" formType="submit" loading="{{loading}}" disabled="{{disabled}}">微信支付</button>
+	</view>
+	</view>
+
+
+	</form>
+
+</view>

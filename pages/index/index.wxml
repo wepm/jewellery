@@ -29,7 +29,7 @@
 
   <!--推荐内容开始-->
   <view class="cont">
-    <navigator url="detail" hover-class="changestyle" wx:for="{{productData}}">
+    <navigator url="detail?productId={{item.ProID}}" hover-class="changestyle" wx:for="{{productData}}">
       <image src="{{item.ImgUrl}}"></image>
       <view class="title">{{item.ProductName}}</view>
       <view class="gmxx df">

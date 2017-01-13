@@ -1,0 +1,22 @@
+<!--pages/qyry/qyry.wxml-->
+<view class="qyry">
+    <navigator url="detail" hover-class="none">
+       <image src="/images/zs01.png"></image>
+       <text class="title ovh1">企业年度成就奖</text>
+       <text class="text ovh2">本企业在2016年被国家评为年度成就奖，这是我们是的最大荣誉，我们要捍卫我的荣誉，并为之奋斗！</text>
+    </navigator>
+</view>
+<view class="qyry">
+    <navigator url="detail" hover-class="none">
+       <image src="/images/zs02.png"></image>
+       <text class="title ovh1">企业年度成就奖</text>
+       <text class="text ovh2">本企业在2016年被国家评为年度成就奖，这是我们是的最大荣誉，我们要捍卫我的荣誉，并为之奋斗！</text>
+    </navigator>
+</view>
+<view class="qyry">
+    <navigator url="detail" hover-class="none">
+       <image src="/images/zs01.png"></image>
+       <text class="title ovh1">企业年度成就奖</text>
+       <text class="text ovh2">本企业在2016年被国家评为年度成就奖，这是我们是的最大荣誉，我们要捍卫我的荣誉，并为之奋斗！</text>
+    </navigator>
+</view>

@@ -1,14 +1,20 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/index/detail",
     "pages/search/search",
     "pages/user/user",
+    "pages/user/shoucang",
+    "pages/user/dingdan",
+    "pages/order/pay",
+    "pages/order/downline",
     "pages/cart/cart",
     "pages/new/new",
     "pages/jp/jp",
     "pages/shop/shop",
     "pages/see/see",
-    "pages/index/detail",
+    "pages/qyry/qyry",
+    "pages/qyry/detail",
     "pages/logs/logs"
   ],
   "window":{

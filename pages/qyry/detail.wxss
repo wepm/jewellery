@@ -1,0 +1,21 @@
+/* pages/qyry/detail.wxss */
+page{
+    background: #fff;
+}
+.cont{
+  width: 92%;
+  padding: 4%;
+}
+.cont .tp_image{
+  width: 100%;
+  height: 460rpx;
+  padding-bottom: 8px;
+}
+.cont .text{
+    font-size: 14px;
+    color: #666;
+    line-height: 24px;
+    padding-bottom: 10px;
+    text-indent:2em;
+}
+
