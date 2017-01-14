@@ -1,6 +1,6 @@
 
 <!--pages/index/detail.wxml-->
-<view class="ad" wx:if="{{bannerApp}}">
+<view class="ad hidd" wx:if="{{bannerApp}}">
   <view class="text-title">
     <view class="font_14">中国珠宝通</view>
     <view class="font_10">珠宝电商无假货平台</view>
@@ -31,6 +31,7 @@
   <!-- 图文详情 -->
   <swiper-item>
     <view class="p_all">
+      <video wx:if="{{item.IsVedioPath}}" style="width:100%" controls src='{{itemData.videoPath}}'></video>
       <!-- <image class="tp_image" src="{{itemData.LunBoProductImageUrl[0]}}"></image> -->
       <view class="tw_text">{{itemData.Contents}}</view>
     </view>
@@ -84,6 +85,6 @@
   </view>
   <view class="fl_l w60">
     <view class="w50 fl_l bg_cheng white" bindtap="addShopCart">加入购物车</view>
-    <navigator class="bg_red white w50 fl_l" type="primary" id="btnBuy" url="../order/pay" bindtap="bindBtnBuy">立刻购买</navigator>
+    <navigator class="bg_red white w50 fl_l" type="primary" id="btnBuy" url="../order/pay?productId={{itemData.ProID}}" bindtap="bindBtnBuy">立刻购买</navigator>
   </view>
 </view>

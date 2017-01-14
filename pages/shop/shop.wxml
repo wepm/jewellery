@@ -29,9 +29,16 @@
 
 <view class="class_50"></view>
 
+<!--筛选没有商品的样式-->
+<view class="search_no">
+    <view><image class="scimg" src="/images/search_no.png"></image></view>
+    <text>都被你筛完了/(ㄒoㄒ)/~~</text>
+</view>
+
 <view class="w100">
     <view class="shop" wx:for="{{productData}}">        
-        <image class="sh_slt" src="{{item.ImgUrl}}"></image>           
+        <image class="sh_slt" src="{{item.ImgUrl}}"></image> 
+        <view class="video"><image src="/images/viedo.png"></image></view>          
             <view class="sp_text">
                 <view class="sp_tit ovh1">{{item.ProductName}}</view>
                 <view class="sp_jg">￥：{{item.Price}}</view>                

@@ -57,6 +57,7 @@ page{  background: #eee;}
 .l_h20{
   line-height: 20px;
 }
+
 /*定位*/
 .pr{position: relative;}
 .pa{position: absolute;}
@@ -106,7 +107,11 @@ page{  background: #eee;}
 .w80{ width: 80%;}
 .w90{ width: 90%;}
 .w100{ width: 100%;}
-
+/*边框*/
+.bte{ border-top: 1px solid #eee;}
+.bbe{ border-bottom: solid 1px #eee;}
+.bre{ border-right: 1px solid #eee;}
+.ble{ border-left: 1px solid #eee;}
 
 .footfixed { display: block; position: fixed; bottom: 0; left: 0;
   background: #fff; z-index: 100; width:100%; font-size: 14px;
@@ -116,4 +121,41 @@ page{  background: #eee;}
   clear: both;
   height: 1px;
   margin-top: 60px;
+}
+.shop{ position: relative;}
+.video{
+  width: 45px;
+  height: 45px;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+}
+.video image{
+  width: 45px;
+  height: 45px;
+  background-size:45px; 
+}
+.search_no{
+    width: 100%; 
+    display: block;
+    color: #666;
+    text-align: center;
+    font-size: 14px;
+}
+.scimg{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    background-size:100px; 
+}
+.x_right{
+    width: 16px;
+    height: 18px;    
+}
+button[type="warn"] {
+color:#FFFFFF;
+background-color:#d9002f;
+
 }

@@ -53,6 +53,8 @@ Page({
     }
 
     data.Price = data.Price/100;
+    data.VedioImagePath = app.d.hostImg + '/' +data.VedioImagePath;
+    data.videoPath = app.d.hostImg + '/' +data.videoPath;
   },
   addFavorites:function(e){//添加到收藏
     var that = this;

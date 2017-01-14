@@ -3,13 +3,13 @@
 	<form bindsubmit="bindBtnPay" report-submit="true" name="payForm">
 		<view class="p_all bg_white df item">
 			<view class="cp_photo">			
-				<image src="/images/sp_slt01.png"></image>
+				<image src="{{itemData.LunBoProductImageUrl[0]}}"></image>
 			</view>
 			<view class="df_1">	
 				<view class="font_14 mt5">
-		           翠玉蜜蜡平安福
+		           {{itemData.ProductName}}
 		        </view>
-			<text class="gm_ovh_1h red pt10">¥2000</text>
+			<text class="gm_ovh_1h red pt10">¥{{itemData.Price}}</text>
 			</view>
 		</view>		
 		
@@ -30,15 +30,18 @@
 			</view>
 		</view>		
 
-	<view class="zhifu mt10 tc">应共支付：<span class="font_20 red">￥2000.00</span></view>
-	<navigator url="##" hover-class="none" class="zhifu mt10">支付宝<image class="x_right" src="/images/x_right.png"></image></navigator>
-	<navigator url="##" hover-class="none" class="zhifu">银联支付<image class="x_right" src="/images/x_right.png"></image></navigator>
+	<view class="zhifu mt10 tc">应共支付：<span class="font_20 red">￥{{itemData.Price}}</span></view>
+	<!-- <navigator url="##" hover-class="none" class="zhifu mt10">支付宝<image class="x_right" src="/images/x_right.png"></image></navigator> -->
+	<!-- <navigator url="##" hover-class="none" class="zhifu">银联支付<image class="x_right" src="/images/x_right.png"></image></navigator> -->
+	<!-- <navigator url="../order/downline" hover-class="none" class="zhifu">线下支付<image class="x_right" src="/images/x_right.png"></image></navigator>
 	<navigator url="../order/downline" hover-class="none" class="zhifu">线下支付<image class="x_right" src="/images/x_right.png"></image></navigator>
-
+ -->
 	<view class="p_all mt10">
 		<view class="btnGreen">
-		<button type="primary" id="btnPay" formType="submit" loading="{{loading}}" disabled="{{disabled}}">微信支付</button>
-	</view>
+			<!-- <button type="primary" id="btnPay" formType="submit" loading="{{loading}}" disabled="{{disabled}}">微信支付</button> -->
+			<button class="wx_pay_submit" type="primary" id="wxPay" formType="submit" >微信支付</button>
+			<button class="xx_pay_submit" type="default" id="xxPay" formType="submit" bindtap="createProductOrderByXX">线下支付</button>
+		</view>
 	</view>
 
 

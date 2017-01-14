@@ -29,7 +29,10 @@
         <button bindtap="doKeySearch" data-key="手镯">手镯</button>
     </view>
 </view>
-
+<view class="search_no" wx:if="{{!!searchValue && !productData.length}}">
+    <view class="font_14"><image class="scimg" src="/images/search_no.png"></image></view>
+    <text>没有找到您要的宝贝/(ㄒoㄒ)/~~</text>
+</view>
 <view class="shop" wx:for="{{productData}}"> 
     <navigator url="../index/detail?productId={{item.ProID}}" hover-class="changestyle">      
         <image class="sh_slt" src="{{item.ImgUrl}}"></image>           

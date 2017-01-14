@@ -1,0 +1,20 @@
+<!--pages/binding/binding.wxml-->
+<view class="page">
+    <view class="df zhuc">
+        <view class="mr10">+86</view>
+        <view class="df_1 ble pl10">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="picker">
+            当前选择：{{array[index]}}
+            </view>
+        </picker>
+    </view>
+        <image  class="x_right mt10" src="/images/x_right.png"></image>
+    </view>
+    <view class="df zhuc">
+        <view class="mr10">手机号</view>
+        <input class="df_1  pl10 mt10" placeholder="输入你的手机号码" auto-focus/>        
+    </view>
+    <button class="mt20 bg_red" type="warn" size="{{warnSize}}" loading="{{loading}}" plain="{{plain}}"
+        disabled="{{disabled}}" bindtap="warn"> 下一步 </button>
+</view>

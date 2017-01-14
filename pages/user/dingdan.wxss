@@ -120,7 +120,7 @@
 .c_t60{
     clear: both;
     height: 1px;
-    padding-top: 53px;
+    padding-top: 48px;
 }
 .blue{
   color: #42b1ff;

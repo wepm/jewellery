@@ -20,30 +20,40 @@
 
     <!--订单详情-->
     <view class="qbdd mt10"><span class="font_14 c3">全部订单</span>
-    <navigator class="fl_r c9 font_12 l_h20" url="../user/dingdan" hover-class="none" >查看全部订单 ></navigator>
+    <navigator class="fl_r c9 font_12 l_h20" url="../user/dingdan?currentTab=0" hover-class="none" >查看全部订单 ></navigator>
     </view>
     <view class="sc df tc bte ">
-      <view class="df_1">
-        <view><image src="/images/dfk.png"></image></view>
+    <navigator class="df_1" url="../user/dingdan?currentTab=0" hover-class="none" >
+        <view><image src="/images/dfk.png"></image>{{orderInfo.PendingSum}}</view>
         <text class="font_12">待付款</text>
-      </view>
-      <view class="df_1">
-      <view><image src="/images/dfh.png"></image></view>
+      </navigator>
+
+    <!-- <navigator class="df_1" url="../user/dingdan" hover-class="none" >
+      <view><image src="/images/dfh.png"></image>{{orderInfo.HasSum}}</view>
         <text class="font_12">待发货</text>      
-      </view>
-      <view class="df_1">
-        <view><image src="/images/dsh.png"></image></view>
-        <text  class="font_12">待收货</text>
-      </view>
-      <view class="df_1">
-        <view><image src="/images/dpl.png"></image></view>
-        <text class="font_12">待评价</text>
-      </view>
-      <view class="df_1">
-        <view><image src="/images/tksh.png"></image></view>
-        <text class="font_12">退款/售后</text>
-      </view>
+      </navigator> -->
+
+      <navigator class="df_1" url="../user/dingdan?currentTab=2" hover-class="none" >
+          <view><image src="/images/dpl.png"></image>{{orderInfo.ReceiptSum}}</view>
+          <text class="font_12">待收货</text>
+      </navigator>
+
+    <navigator class="df_1" url="../user/dingdan?currentTab=3" hover-class="none" >
+          <view><image src="/images/dsh.png"></image>{{orderInfo.HasSum}}</view>
+          <text  class="font_12">已完成</text>
+      </navigator>
+
+    
+    <navigator class="df_1" url="../user/dingdan?currentTab=4" hover-class="none" >
+          <view><image src="/images/tksh.png"></image>{{orderInfo.ReturnSum}}</view>
+          <text class="font_12">退款/售后</text>
+       </navigator>
+
     </view>
+
+
+<navigator url="../binding/binding">绑定手机号</navigator>
+
 </view>
 
 

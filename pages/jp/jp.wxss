@@ -37,6 +37,7 @@
     background: #fff;
     float: left;
     margin-bottom: 4%;
+    position: relative;
 }
 .shop:nth-child(odd){
     margin-right: 2%;

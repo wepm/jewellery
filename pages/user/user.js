@@ -3,6 +3,7 @@ var app = getApp()
 Page( {
   data: {
     userInfo: {},
+    orderInfo:{},
     projectSource: 'https://github.com/liuxuanqiang/wechat-weapp-mall',
     userListInfo: [ {
         icon: '../../images/iconfont-dingdan.png',
@@ -40,7 +41,34 @@ Page( {
           userInfo:userInfo,
           loadingHidden: true
         })
-      })
-  }
+      });
+
+      this.loadOrderStatus();
+  },
+  loadOrderStatus:function(){
+    //用户的订单状态
+    var that = this;
+    console.log(this.data);
+    wx.request({
+      url: app.d.hostUrl + '/ztb/orderZBT/GetOrderSumZBT',
+      method:'post',
+      data: {
+        userId:app.d.userId,
+      },
+      header: {
+        'Content-Type':  'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        //--init data        
+        var data = res.data.data;
+        console.log(data);
+        that.setData({
+          orderInfo:data[0],
+        });
+        
+        //endInitData
+      },
+    });
+  },
 
 })

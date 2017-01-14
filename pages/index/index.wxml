@@ -29,8 +29,9 @@
 
   <!--推荐内容开始-->
   <view class="cont">
-    <navigator url="detail?productId={{item.ProID}}" hover-class="changestyle" wx:for="{{productData}}">
-      <image src="{{item.ImgUrl}}"></image>
+    <navigator class="pr" url="detail?productId={{item.ProID}}" hover-class="changestyle" wx:for="{{productData}}">
+      <image class="cont_image" src="{{item.ImgUrl}}"></image>
+      <view class="video" wx:if="{{item.IsVedioPath}}"><image src="/images/viedo.png"></image></view>
       <view class="title">{{item.ProductName}}</view>
       <view class="gmxx df">
         <span class="jiage df_1">￥：{{item.Price}}</span> 

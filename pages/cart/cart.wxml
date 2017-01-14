@@ -12,8 +12,8 @@
                 </navigator>
                 <view class="sp_neb">数量：×{{item.BuyCount}}</view>
                 <view class="sp_jg">￥：{{item.Price}}</view>
-                <view class="dle" data-card-id="{{item.CartID}}" bindtap="removeShopCard"><image src="/images/dleicon.png"></image> 删除</view>
-                <view class="dle" data-product-id="{{item.ProID}}" bindtap="orderProduct">下单</view>
+                <button class="dle" data-card-id="{{item.CartID}}" bindtap="removeShopCard">删除</button>
+                <navigator class="dle" url="../order/pay?productId={{item.ProID}}&cartId={{item.CartID}}&buyCount={{item.BuyCount}}">下单</navigator>
             </view>
         </view>
     </view>

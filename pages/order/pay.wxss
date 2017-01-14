@@ -85,3 +85,6 @@
     font-size: 20px;
     font-weight: bold;
 }
+.xx_pay_submit{
+  margin-top: 10px;
+}

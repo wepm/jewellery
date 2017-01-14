@@ -50,6 +50,7 @@
     color: #999;
     font-size: 12px;
     float: right;
+    margin-left: 10px;
 }
 .dle image{
     width: 18px;
