@@ -11,6 +11,7 @@ Page({
     remark:'',
     cartId:0,
     addrId:122,//收货地址//测试--
+    btnDisabled:false,
   },
   onLoad:function(options){
     console.log(options);
@@ -60,6 +61,18 @@ Page({
     data.VedioImagePath = app.d.hostImg + '/' +data.VedioImagePath;
     data.videoPath = app.d.hostImg + '/' +data.videoPath;
   },
+  remarkInput:function(e){
+    this.setData({
+      remark: e.detail.value,
+    })
+  },
+  createProductOrderByWX:function(e){
+    this.setData({
+      paytype: 1,
+    });
+
+    this.createProductOrder();
+  },
   createProductOrderByWX:function(e){
     this.setData({
       paytype: 1,
@@ -75,6 +88,9 @@ Page({
     this.createProductOrder();
   },
   createProductOrder:function(){
+    this.setData({
+      btnDisabled:true,
+    })
     //创建订单
     var that = this;
     console.log(this.data);
@@ -105,7 +121,18 @@ Page({
             //线下支付
             
           }
-        }
+          if(that.data.paytype == 1){
+            //微信支付
+            
+          }
+          //跳转到订单详情//不能跳转此处，因为没有orderID，只能跳转到待支付
+          // wx.navigateTo({
+          //   url: '/pages/order/detail?orderId='+data.OrderID,
+          // });
+          wx.navigateTo({
+            url: '/pages/user/dingdan?currentTab=0',
+          });
+        }//endok
         //endInitData
       },
     });

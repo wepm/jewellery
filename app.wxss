@@ -78,6 +78,7 @@ page{  background: #eee;}
 /*间距*/
 .mt1{margin-top: 1px;}
 .mt5{margin-top: 5px;}
+.mt8{margin-top: 8px;}
 .mt10{margin-top: 10px;}
 .mt15{margin-top: 15px;}
 .mt20{margin-top: 20px;}
@@ -152,7 +153,8 @@ page{  background: #eee;}
 }
 .x_right{
     width: 16px;
-    height: 18px;    
+    height: 18px;
+    margin-left: 10px;  
 }
 button[type="warn"] {
 color:#FFFFFF;

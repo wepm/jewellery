@@ -1,3 +1,4 @@
+/* pages/user/address.wxss */
 .item .cp_photo{ 
     width: 60px; 
     height: 60px;

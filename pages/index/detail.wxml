@@ -31,7 +31,7 @@
   <!-- 图文详情 -->
   <swiper-item>
     <view class="p_all">
-      <video wx:if="{{item.IsVedioPath}}" style="width:100%" controls src='{{itemData.videoPath}}'></video>
+      <video wx:if="{{!!itemData.VID}}" style="width:100%" controls src='{{itemData.videoPath}}'></video>
       <!-- <image class="tp_image" src="{{itemData.LunBoProductImageUrl[0]}}"></image> -->
       <view class="tw_text">{{itemData.Contents}}</view>
     </view>
@@ -67,10 +67,10 @@
 <view class="footfixed tc">
   <view class="fl_l w40 font_12 hui03 df">
     <view class="df_1 l_h15 pt5 bre">
-      <navigator url="##">
+      <contact-button type="default-light" session-from="productId_{{itemData.ProID}}">
         <image class="icon_kf" src="/images/kefu.png"></image>
         <view class="dbtext" style="line">客服</view>
-      </navigator>
+      </contact-button >
     </view>
     <view class="df_1 l_h15 pt5">
       <view bindtap="addFavorites">
@@ -85,6 +85,7 @@
   </view>
   <view class="fl_l w60">
     <view class="w50 fl_l bg_cheng white" bindtap="addShopCart">加入购物车</view>
-    <navigator class="bg_red white w50 fl_l" type="primary" id="btnBuy" url="../order/pay?productId={{itemData.ProID}}" bindtap="bindBtnBuy">立刻购买</navigator>
+    <!-- <navigator class="bg_red white w50 fl_l" type="primary" id="btnBuy" url="../order/pay?productId={{itemData.ProID}}" bindtap="bindBtnBuy">立刻购买</navigator> -->
+    <view class="bg_red white w50 fl_l" bindtap="bindBtnBuy">立刻购买</view>
   </view>
 </view>

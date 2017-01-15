@@ -53,8 +53,8 @@ Page({
     }
 
     data.Price = data.Price/100;
-    data.VedioImagePath = app.d.hostImg + '/' +data.VedioImagePath;
-    data.videoPath = app.d.hostImg + '/' +data.videoPath;
+    data.VedioImagePath = app.d.hostVideo + '/' +data.VedioImagePath;
+    data.videoPath = app.d.hostVideo + '/' +data.videoPath;
   },
   addFavorites:function(e){//添加到收藏
     var that = this;
@@ -88,7 +88,10 @@ Page({
       },
     });
   },
-  addShopCart:function(e){ //添加到购物车
+  bindBtnBuy:function(){//添加购物车，并且购买
+    this.addShopCart('buy');
+  },
+  addShopCart:function(act){ //添加到购物车
     var that = this;
     console.log(this.data);
     wx.request({
@@ -106,18 +109,29 @@ Page({
         // //--init data        
         var data = res.data;
         console.log(data);
-        wx.showToast({
-            title: data.message,
-            icon: 'success',
-            duration: 2000
-        });
-
+        
         if(data.result == 'ok'){
-          console.log('add to shope card ok')
-          wx.switchTab({
-            url: '/pages/cart/cart'
-          });
-        }
+          // 不能跳转到下单页，因为没有购物车id
+          // if(act == 'buy'){
+          //   wx.navigateTo({
+          //     url: '/pages/order/pay?productId='+that.data.productId+'&cartId='+data.message+'&buyCount=1;',
+          //   });
+          //   return;
+          // }
+          //console.log('add to shope card ok')
+          if(act == 'buy'){
+            wx.switchTab({
+              url: '/pages/cart/cart'
+            });
+            return;
+          }else{
+            wx.showToast({
+                title: '加入成功',
+                icon: 'success',
+                duration: 2000
+            });
+          }     
+        }//endok
       },
     });
   },
@@ -137,7 +151,6 @@ Page({
     });
   },
   bannerClosed:function(){
-    console.log('bbbbbbbbbbbb')
     this.setData({
       bannerApp:false,
     })

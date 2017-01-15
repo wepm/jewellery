@@ -5,42 +5,42 @@
         <text>支付宝</text>
         <text>姓名:王添名</text>
         <text class="c3">支付宝:6211666@qq.com</text>
-        <text>复制帐号</text>
+        <!-- <text>复制帐号</text> -->
     </view>
     <view class="p_all">
         <text>银行:中国农业银行</text>
         <text>支行:昆明春城支行营业室</text>
         <text>户名:王添名</text>
         <text class="c3">卡号:6228 4808 6819 4970 273</text>
-        <text>复制卡号</text>
+        <!-- <text>复制卡号</text> -->
     </view>
     <view class="p_all">
         <text>银行:中国建设银行</text>
         <text>支行:昆明西园南路支行</text>
         <text>户名:王添名</text>
         <text class="c3">卡号:6217 0038 6001 3184 799</text>
-        <text>复制卡号</text>
+        <!-- <text>复制卡号</text> -->
     </view>
     <view class="p_all">
         <text>银行:中国银行</text>
         <text>支行:昆明市东风支行</text>
         <text>户名:王添名</text>
         <text class="c3">卡号:6217 8527 0000 6705 006</text>
-        <text>复制卡号</text>
+        <!-- <text>复制卡号</text> -->
     </view>
     <view class="p_all">
         <text>银行:中国工商银行</text>
         <text>支行:昆明市南屏支行</text>
         <text>户名:王添名</text>
         <text class="c3">卡号:6212 8825 0200 0126 626</text>
-        <text>复制卡号</text>
+        <!-- <text>复制卡号</text> -->
     </view>
     <view class="p_all">
         <text>银行:兴业银行</text>
         <text>支行:昆明分行</text>
         <text>户名:王添名</text>
         <text class="c3">卡号:6229 0947 3063 8569 10</text>
-        <text>复制卡号</text>
+        <!-- <text>复制卡号</text> -->
     </view>
 
 		<view class="p_all01 mt10 bg">
@@ -54,7 +54,11 @@
 			</view>
 			<view class=" mt10">
             <view class="c3">收款人卡号</view>               
-			<input class="inputStyle" name="input"  bindinput="bindKeyInput2" placeholder="收货人地址" value="{{addressValue}}"/>			
+			<input class="inputStyle" name="input"  bindinput="bindKeyInput2" placeholder="收货人地址" value="{{addressValue}}"/>		
+			</view>
+            <view class=" mt10">
+            <view class="c3">银行流水号</view>               
+			<input class="inputStyle" name="input"  bindinput="bindKeyInput2" placeholder="请输入银行流水号" value="{{addressValue}}"/>		
 			</view>
 		</view>		
 

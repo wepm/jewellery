@@ -59,7 +59,7 @@
 }
 .gmxx .jiage{
   font-size: 16px;
-  color: #999;  
+  color: #d9002f;  
   padding-top: 10px; 
 }
 .gmxx button{

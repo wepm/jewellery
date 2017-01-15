@@ -23,6 +23,7 @@ App({
   d: {
     hostUrl: 'https://app.gemmy.so',
     hostImg: 'http://img.ynjmzb.net',
+    hostVideo: 'http://zhubaotong-file.oss-cn-beijing.aliyuncs.com',
     userId: 3,
   },
     onLaunch: function () {

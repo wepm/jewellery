@@ -125,3 +125,6 @@
 .blue{
   color: #42b1ff;
 }
+.mr_5{
+    margin-right: 5px;
+}

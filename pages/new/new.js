@@ -45,12 +45,12 @@ Page({
       console.log(mid);
       console.log(attr);
       console.log(val);
-      if(val){
+      if(val || attr == 'all'){
         //查询商品
         this.setData({
             subMenuDisplay: initSubMenuDisplay(),
             filterMid: mid,
-            filterValueText: val,
+            filterValueText: attr == 'all' ? '' : val,
             page:1,
             productData:[],
         });
@@ -191,9 +191,21 @@ Page({
     that.data.fcClass.length = 0;
     that.data.zsClass.length = 0;
     that.data.cbClass.length = 0;
+    // that.data.fcClass.push({
+    //     mid: item.MID,
+    //     name: '全部'
+    // });
+    // that.data.zsClass.push({
+    //     mid: item.MID,
+    //     name: '全部'
+    // });
+    // that.data.cbClass.push({
+    //     mid: item.MID,
+    //     name: '全部'
+    // });
     for(var i=0;i<data.length;i++){
         var item = data[i];
-
+        
         //翡翠
         if(item.ParentID.length == 6 && item.ParentID.indexOf('102') == 0){
             that.data.fcClass.push({
@@ -241,6 +253,11 @@ Page({
   initProductAttr: function(filterType, data){
 
       var box = [];
+      box.push({
+        mid: data[0].MID,
+        name: '全部',
+        attr: 'all',
+      });
       for(var i =0; i<data.length;i++){
           var item = data[i];
 

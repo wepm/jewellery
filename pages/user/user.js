@@ -45,6 +45,9 @@ Page( {
 
       this.loadOrderStatus();
   },
+  onShow:function(){
+    this.loadOrderStatus();
+  },
   loadOrderStatus:function(){
     //用户的订单状态
     var that = this;
