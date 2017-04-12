@@ -13,8 +13,8 @@
     </view>
     <view class="df zhuc">
         <view class="mr10">手机号</view>
-        <input class="df_1  pl10 mt10" placeholder="输入你的手机号码" auto-focus/>        
+        <input class="df_1  pl10 mt10" type="number" placeholder="输入你的手机号码" bindinput="bindTelInput" auto-focus/>        
     </view>
     <button class="mt20 bg_red" type="warn" size="{{warnSize}}" loading="{{loading}}" plain="{{plain}}"
-        disabled="{{disabled}}" bindtap="warn"> 下一步 </button>
+        disabled="{{disabled}}" bindtap="bindNext"> 下一步 </button>
 </view>

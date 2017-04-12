@@ -18,15 +18,15 @@
     </view>
     <text class="font_14 mt10">历史搜索</text>
     <view class="w100">
-        <button bindtap="doKeySearch" data-key="翡翠">翡翠</button>
-        <button bindtap="doKeySearch" data-key="钻石">钻石</button>
+        <button bindtap="doKeySearch" data-key="{{item}}" wx:for="{{historyKeyList}}">{{item}}</button>
+<!--         <button bindtap="doKeySearch" data-key="钻石">钻石</button>
         <button bindtap="doKeySearch" data-key="手镯">手镯</button>
         <button bindtap="doKeySearch" data-key="翡翠">翡翠</button>
         <button bindtap="doKeySearch" data-key="钻石">钻石</button>
         <button bindtap="doKeySearch" data-key="手镯">手镯</button>
         <button bindtap="doKeySearch" data-key="翡翠">翡翠</button>
         <button bindtap="doKeySearch" data-key="钻石">钻石</button>
-        <button bindtap="doKeySearch" data-key="手镯">手镯</button>
+        <button bindtap="doKeySearch" data-key="手镯">手镯</button> -->
     </view>
 </view>
 <view class="search_no" wx:if="{{!!searchValue && !productData.length}}">

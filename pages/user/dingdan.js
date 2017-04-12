@@ -1,7 +1,8 @@
 // pages/user/dingdan.js
 //index.js  
 //获取应用实例  
-var app = getApp()  
+var app = getApp();
+var common = require("../../utils/common.js");
 Page( {  
   data: {  
     winWidth: 0,  
@@ -209,5 +210,33 @@ Page( {
             break;
         }
     };
-  }  
-})  
+  },
+  /**
+   * 微信支付订单
+   */
+  payOrderByWechat: function(event){
+    var orderId = event.currentTarget.dataset.orderId;
+    this.prePayWechatOrder(orderId);
+    var successCallback = function(response){
+      console.log(response);
+    }
+    common.doWechatPay("prepayId", successCallback);
+  },
+
+  /**
+   * 调用服务器微信统一下单接口创建一笔微信预订单
+   */
+  prePayWechatOrder: function(orderId){
+    var uri = "/ztb/userZBT/GetWxOrder";
+    var method = "post";
+    var dataMap = {
+      SessionId: app.globalData.userInfo.sessionId,
+      OrderNo: orderId
+    }
+    console.log(dataMap);
+    var successCallback = function (response) {
+      console.log(response);
+    };
+    common.sentHttpRequestToServer(uri, dataMap, method, successCallback);
+  }
+})

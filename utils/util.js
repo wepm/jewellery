@@ -19,3 +19,10 @@ function formatNumber(n) {
 module.exports = {
   formatTime: formatTime
 }
+
+function checkStringEmpty(data){
+  if(null == data || "" == data){
+    return false;
+  }
+  return true;
+}

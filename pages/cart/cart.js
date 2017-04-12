@@ -71,6 +71,8 @@ Page({
         //endInitData
       },
     });
+    console.log("start log product data");
+    console.log(this.data.productData);
   },
   initProductData: function (data){
     for(var i=0; i<data.length; i++){

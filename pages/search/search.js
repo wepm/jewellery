@@ -8,10 +8,13 @@ Page({
     searchValue:'',
     page:1,
     productData:[],
+    historyKeyList:[],
   },
   onLoad:function(options){
-    // 页面初始化 options为页面跳转所带来的参数
-
+    wx.setStorage({
+      key:"historyKeyList",
+      data:this.data.historyKeyList,
+    });
   },
   onReachBottom:function(){
       //下拉加载更多多...
@@ -38,7 +41,9 @@ Page({
     if (!searchKey) {
         this.setData({
             focus: true,
-        })
+            hotKeyShow:true,
+            historyKeyShow:true,
+        });
         return;
     };
 
@@ -49,12 +54,44 @@ Page({
     
     this.data.productData.length = 0;
     this.searchProductData();
+
+    this.getOrSetSearchHistory(searchKey);
+  },
+  getOrSetSearchHistory:function(key){
+    var that = this;
+    wx.getStorage({
+      key: 'historyKeyList',
+      success: function(res) {
+          console.log(res.data);
+
+          //console.log(res.data.indexOf(key))
+          if(res.data.indexOf(key) >= 0){
+            return;
+          }
+
+          res.data.push(key);
+          wx.setStorage({
+            key:"historyKeyList",
+            data:res.data,
+          });
+
+          that.setData({
+            historyKeyList:res.data
+          });
+      }
+    });
   },
   searchValueInput:function(e){
     var value = e.detail.value;
     this.setData({
       searchValue:value,
     });
+    if(!value && this.data.productData.length == 0){
+      this.setData({
+        hotKeyShow:true,
+        historyKeyShow:true,
+      });
+    }
   },
   searchProductData:function(){
     var that = this;

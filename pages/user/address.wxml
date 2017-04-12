@@ -1,29 +1,29 @@
 <!--pages/user/address.wxml-->
 		<view class="p_all bg_white mt10 font_12">
-			<view class="df">
-            <radio-group name="radio-group">
-			<label><radio class="mt8" value="radio1"/></label>
-			</radio-group>
+			<view wx:for="{{addressList}}" class="df">
+            	<radio-group name="radio-group">
+				<label><radio class="mt8" value="radio1"/></label>
+				</radio-group>
 				<view class="df_1 c6">
-				<view class="l_h20">收货人：何仔仔<text class="fl_r mr10">15980968693</text></view>
-				<view class="l_h20">地址：福建省厦门市湖里区xxxxxx号</view>
+				<view class="l_h20">{{item.Receiver}}<text class="fl_r mr10">{{item.PhoneNum}}</text></view>
+				<view class="l_h20">地址：{{item.Region}}{{item.DetailAddress}}</view>
 				</view>
-                </view>
+            </view>
 		</view>	
 
 		<view class="p_all bg_white mt10 font_14">
 
 			<view class="bbe mt10">
-			<input class="inputStyle" name="input" name="name" bindinput="bindKeyInput" placeholder="收货人姓名:" value="{{mobileValue}}"/>			
+			<input class="inputStyle" name="input" name="name" bindinput="setConsigneeName" placeholder="收货人姓名:" value="{{consigneeName}}"/>			
 			</view>
 			<view class="bbe mt10">
-			<input class="inputStyle" name="input" name="mobile" bindinput="bindKeyInput" placeholder="收货人电话:" value="{{mobileValue}}"/>			
+			<input class="inputStyle" name="input" name="mobile" bindinput="setConsigneePhone" placeholder="收货人电话:" value="{{consigneePhone}}"/>			
 			</view>
 			<view class="bbe mt10">
-			<input class="inputStyle" name="input" name="mobile" bindinput="bindKeyInput" placeholder="收货人地域:" value="{addressValue}}"/>			
+			<input class="inputStyle" name="input" name="mobile" bindinput="setConsigneeArea" placeholder="收货人地域:" value="{{consigneeArea}}"/>			
 			</view>
 			<view class="mt10">
-			<input class="inputStyle" name="input" name="address" bindinput="bindKeyInput2" placeholder="收货人地址:" value="{{addressValue}}"/>			
+			<input class="inputStyle" name="input" name="address" bindinput="setConsigneeAddress" placeholder="收货人地址:" value="{{consigneeAddress}}"/>			
 			</view>          
 		</view>	
 
@@ -31,6 +31,6 @@
 		
         <view class="p_all mt20">
         <button type="warn" size="{{warnSize}}" loading="{{loading}}" plain="{{plain}}"
-        disabled="{{disabled}}" bindtap="warn"> 添加地址 </button>
+        disabled="{{disabled}}" bindtap="addAddress"> 添加地址 </button>
         
         </view>

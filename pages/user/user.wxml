@@ -52,7 +52,7 @@
     </view>
 
 
-<navigator url="../binding/binding">绑定手机号</navigator>
+    <!--     <navigator url="../binding/binding">绑定手机号</navigator> -->
 
 </view>
 

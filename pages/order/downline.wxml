@@ -45,26 +45,45 @@
 
 		<view class="p_all01 mt10 bg">
 			<view class=" mt10">
-            <view class="c3">收款人卡号</view>
-			<input class="inputStyle" name="input"  bindinput="bindKeyInput" placeholder="收款卡号" value="{{mobileValue}}"/>			
+              <view class="df zhuc">
+                <view class="mr10">支付行名称</view>
+                <view class="df_1 ble pl10">
+                <picker bindchange="bindPickerPayBankNameChange" value="{{index1}}" range="{{payBankNameList}}">
+                    <view class="picker">
+                    当前选择：{{payBankName}}
+                    </view>
+                </picker>
+                </view>
+                <image  class="x_right mt10" src="/images/x_right.png"></image>
+            </view>
+
 			</view>
 			<view class=" mt10">
-            <view class="c3">收款人卡号</view>
-			<input class="inputStyle" name="input"  bindinput="bindKeyInput" placeholder="收货人电话" value="{{mobileValue}}"/>			
+            <!-- <view class="c3">支付流水号</view> -->
+			<input class="inputStyle" name="input"  bindinput="bindKeyInputPayNo" placeholder="支付流水号" value="{{mobileValue}}"/>			
 			</view>
 			<view class=" mt10">
-            <view class="c3">收款人卡号</view>               
-			<input class="inputStyle" name="input"  bindinput="bindKeyInput2" placeholder="收货人地址" value="{{addressValue}}"/>		
+            <!-- <view class="c3">支付人</view>    -->            
+			<input class="inputStyle" name="input"  bindinput="bindKeyInputPayUser" placeholder="支付人" value="{{addressValue}}"/>		
 			</view>
             <view class=" mt10">
-            <view class="c3">银行流水号</view>               
-			<input class="inputStyle" name="input"  bindinput="bindKeyInput2" placeholder="请输入银行流水号" value="{{addressValue}}"/>		
+                <view class="df zhuc">
+                <view class="mr10">支付方式</view>
+                <view class="df_1 ble pl10">
+                <picker bindchange="bindPickerPayMethodChange" value="{{index2}}" range="{{payMethodList}}">
+                    <view class="picker">
+                    当前选择：{{payMethod}}
+                    </view>
+                </picker>
+                </view>
+                <image  class="x_right mt10" src="/images/x_right.png"></image>
+                </view>	
 			</view>
 		</view>		
 
 	<view class="p_all01 mtt0">
 		<view class="btnGreen">
-		<button type="primary" id="btnPay" formType="submit" loading="{{loading}}" disabled="{{disabled}}">确定</button>
+		<button type="primary" id="btnPay" formType="submit" bindtap="submitPayInfo">确定</button>
 	</view>
 	</view>
 

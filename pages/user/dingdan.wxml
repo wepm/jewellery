@@ -25,8 +25,8 @@
                 </navigator>
                 <view class="sp_neb">数量：×{{item.BuyCount}}</view>
                 <view class="sp_jg">￥：{{item.price}}</view>
-                <view class="font_12 red fl_r" wx:if="{{item.PayType==1}}">微信支付</view>
-                <navigator class="font_12 red fl_r" url="../order/downline" wx:if="{{item.PayType==0}}">线下支付</navigator>
+                <view class="font_12 red fl_r" bindtap="payOrderByWechat" data-order-id="{{item.OrderID}}" wx:if="{{item.PayType==1}}">微信支付</view>
+                <navigator class="font_12 red fl_r" url="../order/downline?orderId={{item.OrderID}}" wx:if="{{item.PayType==0}}">线下支付</navigator>
 
                 <view class="font_12 red fl_r mr_5" bindtap="removeOrder" data-order-id="{{item.OrderID}}">取消订单</view>
                 <navigator url="../order/detail?orderId={{item.OrderID}}" class="font_12 red fl_r mr_5">订单详情</navigator>
@@ -88,7 +88,7 @@
         <text>没有可用订单/(ㄒoㄒ)/~~</text>
     </view>
     <view class="shop df" wx:for="{{orderList1}}">
-        <image class="sh_slt" src="/images/sp_slt01.png"></image>
+        <image class="sh_slt" src="{{item.ImgUrl}}"></image>
         <view class="df_1">            
             <view class="sp_text">
                 <navigator url="../index/detail?productId={{item.ProID}}" hover-class="changestyle">
@@ -155,7 +155,7 @@
             <text>没有可用订单/(ㄒoㄒ)/~~</text>
         </view>
         <view class="shop df" wx:for="{{orderList2}}">        
-        <image class="sh_slt" src="/images/sp_slt01.png"></image>
+        <image class="sh_slt" src="{{item.ImgUrl}}"></image>
         <view class="df_1">            
             <view class="sp_text">
                 <navigator url="../index/detail?productId={{item.ProID}}" hover-class="changestyle">
@@ -224,7 +224,7 @@
         </view>
 
     <view class="shop df" wx:for="{{orderList3}}">   
-        <image class="sh_slt" src="/images/sp_slt01.png"></image>
+        <image class="sh_slt" src="{{item.ImgUrl}}"></image>
         <view class="df_1">            
             <view class="sp_text">
                 <navigator url="../index/detail?productId={{item.ProID}}" hover-class="changestyle">
@@ -293,7 +293,7 @@
     </view>
 
     <view class="shop df" wx:for="{{orderList4}}">
-        <image class="sh_slt" src="/images/sp_slt01.png"></image>
+        <image class="sh_slt" src="{{item.ImgUrl}}"></image>
         <view class="df_1">            
             <view class="sp_text">
                 <navigator url="../index/detail?productId={{item.ProID}}" hover-class="changestyle">

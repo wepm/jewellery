@@ -17,7 +17,7 @@
     <view><span class="jiage">￥：{{itemData.Price}}</span> <span class="c6 fl_r font_14">库存：{{itemData.StockCount}}</span> </view>
     <view class="font_14 c6">品牌：佳名珠宝（云南省著名商标）</view>
     <view class="font_14 c6">共享：返还积分</view>
-    <view class="font_14 c6">支持：微信支付，支付宝，银联，线下</view>
+    <view class="font_14 c6">支持：微信支付，银联，线下</view>
   </view>
 </view>
 
